@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Definición de la estructura Contacto
+struct Contacto {
+    std::string nombre;
+    std::string email;
+    std::string telefono;
+};
+
+// Función para añadir un nuevo contacto a la lista
+void agregarContacto(std::vector<Contacto>& lista, const std::string& nombre, const std::string& email, const std::string& telefono) {
+    lista.push_back({ nombre, email, telefono });
+}
+
+// Función para mostrar todos los contactos
+void mostrarContactos(const std::vector<Contacto>& lista) {
+    std::cout << "Lista de Contactos:\n";
+    for (const auto& contacto : lista) {
+        std::cout << "Nombre: " << contacto.nombre
+            << ", Email: " << contacto.email
+            << ", Teléfono: " << contacto.telefono << std::endl;
+    }
+}
+
+int main() {
+    std::vector<Contacto> listaDeContactos;
+
+    // Añadir algunos contactos
+    agregarContacto(listaDeContactos, "Garcia Del Carmen Jose Antonio", "a010170693@my.uvm.edu.mx", "5528944468");
+    agregarContacto(listaDeContactos, "Garcia Lopez Omar", "a040252463@my.uvm.edu.mx", "5529767457");
+    agregarContacto(listaDeContactos, "Perez Bernal Mauricio Ignacio", "a020227966@my.uvm.edu.mx", "5536590049");
+    agregarContacto(listaDeContactos, "Saleh Subaie Faissal", "a340450129@my.uvm.edu.mx", "5552184832");
+
+    // Mostrar todos los contactos
+    mostrarContactos(listaDeContactos);
+
+    return 0;
+}
